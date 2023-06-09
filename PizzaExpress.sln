@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33717.318
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaExpress.Domain", "PizzaExpress.Domain\PizzaExpress.Domain.csproj", "{BBEA0162-3F3B-4766-963F-BC0A5B152B48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaExpress.Mvc", "PizzaExpress.Mvc\PizzaExpress.Mvc.csproj", "{DA80E1D6-F9BB-4FE5-88CB-035F770A03AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BBEA0162-3F3B-4766-963F-BC0A5B152B48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBEA0162-3F3B-4766-963F-BC0A5B152B48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBEA0162-3F3B-4766-963F-BC0A5B152B48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBEA0162-3F3B-4766-963F-BC0A5B152B48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA80E1D6-F9BB-4FE5-88CB-035F770A03AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA80E1D6-F9BB-4FE5-88CB-035F770A03AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA80E1D6-F9BB-4FE5-88CB-035F770A03AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA80E1D6-F9BB-4FE5-88CB-035F770A03AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EDA5F408-B9CB-468E-8EC9-EE75D0E696A8}
+	EndGlobalSection
+EndGlobal
