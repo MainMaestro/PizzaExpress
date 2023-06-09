@@ -8,6 +8,38 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\appstore.png" />
+    <None Include="wwwroot\bannerfr_lg.jpg" />
+    <None Include="wwwroot\bannerfr_sm.jpg" />
+    <None Include="wwwroot\banner_lg.jpg" />
+    <None Include="wwwroot\banner_sm.jpg" />
+    <None Include="wwwroot\Beyond.jpg" />
+    <None Include="wwwroot\googleplay.png" />
+    <None Include="wwwroot\Instagram.jpg" />
+    <None Include="wwwroot\logo.png" />
+    <None Include="wwwroot\map_orders.jpg" />
+    <None Include="wwwroot\testo_lg.jpg" />
+    <None Include="wwwroot\testo_sm.jpg" />
+    <None Include="wwwroot\VK.jpg" />
+    <None Include="wwwroot\Барбекю.jpg" />
+    <None Include="wwwroot\Гавайская.jpg" />
+    <None Include="wwwroot\Деревенская.jpg" />
+    <None Include="wwwroot\Жюльен.jpg" />
+    <None Include="wwwroot\кухня_sm.jpg" />
+    <None Include="wwwroot\Маргарита.jpg" />
+    <None Include="wwwroot\Мясная.jpg" />
+    <None Include="wwwroot\Пепперони.jpg" />
+    <None Include="wwwroot\Сицилия.jpg" />
+    <None Include="wwwroot\Трюфельная.jpg" />
+    <None Include="wwwroot\Тунец.jpg" />
+    <None Include="wwwroot\Хот-дог.jpg" />
+    <None Include="wwwroot\Цезарь.jpg" />
+    <None Include="wwwroot\Чесночная.jpg" />
+    <None Include="wwwroot\Четыре сыра.jpg" />
+    <None Include="wwwroot\кухня_lg.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.5" />
