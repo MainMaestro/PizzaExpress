@@ -7,37 +7,66 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/PizzaExpress.Mvc.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/components.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/jquery.fancybox.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/template_styles.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+        <symbol id="cart" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23.89 7.67a.8.8 0 0 0-.64-.32h-2.91L16.54.76a.8.8 0 0 0-1.4.8l3.34 5.8H5.58l3.33-5.8a.8.8 0 1 0-1.4-.8l-3.79 6.6H.81a.8.8 0 0 0-.78 1L3.25 20.7c.1.35.41.6.78.6h16a.8.8 0 0 0 .78-.6l3.22-12.33a.8.8 0 0 0-.14-.7Zm-4.48 12H4.65l-2.8-10.7H22.2l-2.8 10.7Z" fill="#000" />
+        </symbol>
+        <symbol id="user" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.889 22.315c-5.734 0-10.4-4.665-10.4-10.4 0-5.734 4.666-10.4 10.4-10.4s10.4 4.666 10.4 10.4c0 5.735-4.666 10.4-10.4 10.4Zm0-22.289C5.334.026 0 5.36 0 11.916c0 6.555 5.333 11.888 11.889 11.888 6.555 0 11.889-5.333 11.889-11.889 0-6.555-5.334-11.889-11.89-11.889Zm7.282 17.646-1.317.695c-1.155-2.19-3.441-3.552-5.965-3.552s-4.81 1.361-5.965 3.552l-1.318-.695c1.414-2.68 4.205-4.346 7.283-4.346 3.078 0 5.868 1.665 7.282 4.346ZM11.89 5.312c1.323 0 2.4 1.076 2.4 2.4 0 1.322-1.077 2.399-2.4 2.399a2.403 2.403 0 0 1-2.4-2.4c0-1.323 1.076-2.4 2.4-2.4Zm0 6.289a3.894 3.894 0 0 0 3.89-3.89 3.894 3.894 0 0 0-3.89-3.89 3.894 3.894 0 0 0-3.89 3.89 3.894 3.894 0 0 0 3.89 3.89Z" fill="#000" />
+        </symbol>
+        <symbol id="menu" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line y1="2.35986" x2="24" y2="2.35986" stroke="black" stroke-width="2" />
+            <line x1="8" y1="11.6929" x2="24" y2="11.6929" stroke="black" stroke-width="2" />
+            <line x1="4" y1="21.0264" x2="24" y2="21.0264" stroke="black" stroke-width="2" />
+        </symbol>
+        <symbol id="check" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="m4 9.4-4-4L1.4 4 4 6.6 10.6 0 12 1.4l-8 8Z" fill="#ED1A3B" />
+        </symbol>
+        <symbol id="vk" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M33.08 2.28c.25-.8 0-1.37-1.1-1.37h-3.69c-.93 0-1.36.5-1.6 1.05 0 0-1.9 4.6-4.55 7.6-.85.86-1.25 1.15-1.71 1.15-.25 0-.57-.29-.57-1.08V2.24c0-.93-.29-1.37-1.08-1.37H13a.89.89 0 0 0-.93.87c0 .9 1.33 1.12 1.47 3.64v5.48c0 1.19-.21 1.4-.68 1.4-1.25 0-4.29-4.64-6.11-9.94C6.38 1.27 6.02.88 5.09.88H1.38C.3.88.13 1.38.13 1.92c0 .97 1.25 5.87 5.82 12.36 3.04 4.43 7.36 6.8 11.26 6.8 2.36 0 2.65-.53 2.65-1.43V16.3c0-1.08.21-1.26.96-1.26.54 0 1.5.28 3.68 2.41 2.5 2.52 2.93 3.68 4.33 3.68h3.68c1.07 0 1.57-.55 1.29-1.59-.33-1.05-1.54-2.56-3.11-4.36-.86-1-2.15-2.13-2.54-2.67-.54-.72-.4-1 0-1.65-.04 0 4.47-6.42 4.93-8.58" fill="#313131" />
+        </symbol>
+        <symbol id="inst" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 11.28a3.72 3.72 0 1 0 0 7.44 3.72 3.72 0 0 0 0-7.44Zm14.9-3.67a9.8 9.8 0 0 0-.63-3.4A6 6 0 0 0 25.79.73a9.8 9.8 0 0 0-3.4-.63C20.46 0 19.9 0 15 0S9.54 0 7.6.1a9.8 9.8 0 0 0-3.38.64A6 6 0 0 0 .73 4.21 9.8 9.8 0 0 0 .1 7.6C0 9.54 0 10.1 0 15s0 5.46.1 7.4c.02 1.16.23 2.3.64 3.4a5.9 5.9 0 0 0 3.48 3.46 9.8 9.8 0 0 0 3.39.63C9.54 30 10.1 30 15 30s5.46 0 7.4-.1a9.8 9.8 0 0 0 3.39-.63 5.9 5.9 0 0 0 3.48-3.46 9.9 9.9 0 0 0 .63-3.41c.1-1.94.1-2.51.1-7.4 0-4.89 0-5.46-.1-7.4Zm-3.81 12a8.6 8.6 0 0 1-.59 2.7 5.79 5.79 0 0 1-3.2 3.19 8.6 8.6 0 0 1-2.71.52h-9.18a8.6 8.6 0 0 1-2.71-.52 5.26 5.26 0 0 1-1.97-1.29 5.26 5.26 0 0 1-1.23-1.9 8.23 8.23 0 0 1-.51-2.72v-9.18c.02-.93.19-1.85.51-2.71.28-.75.72-1.42 1.29-1.97a5.39 5.39 0 0 1 1.9-1.23 8.6 8.6 0 0 1 2.72-.52h9.18c.93.02 1.84.2 2.71.52.75.28 1.42.72 1.97 1.29.54.54.96 1.19 1.23 1.9.32.88.5 1.8.52 2.72V15c0 3.09.11 3.4.07 4.59v.02Zm-2.4-11.16a3.57 3.57 0 0 0-2.12-2.12A6 6 0 0 0 19.5 6h-9a6 6 0 0 0-2.07.39 3.57 3.57 0 0 0-2.11 2.04A6.4 6.4 0 0 0 6 10.5v9c.01.7.15 1.4.39 2.07a3.57 3.57 0 0 0 2.12 2.11 6.4 6.4 0 0 0 1.99.4h9a6 6 0 0 0 2.07-.4 3.57 3.57 0 0 0 2.11-2.11 6 6 0 0 0 .4-2.07v-9c0-.7-.14-1.41-.4-2.07v.02ZM15 20.73a5.71 5.71 0 0 1-4.75-8.92A5.73 5.73 0 1 1 15 20.73Zm6-10.34a1.35 1.35 0 0 1 0-2.68 1.35 1.35 0 0 1 0 2.68Z" fill="#313131" />
+        </symbol>
+        <symbol id="house" viewBox="0 0 36 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 0v3.39l3 2V3h15v22.5h-7.5v3H36V0H15Zm-3.75 4.5L0 12v16.5h22.5V12L11.25 4.5ZM21 6v1.4L23.41 9H24V6h-3Zm6 0v3h3V6h-3ZM11.25 8.25l8.25 5.25v12H15v-9H7.5v9H3v-12l8.25-5.25ZM27 12v3h3v-3h-3Zm0 6v3h3v-3h-3Z" fill="#ED1A3B" />
+        </symbol>
+        <symbol id="arrow" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M25.25.5H2.75A2.25 2.25 0 0 0 .5 2.75v22.5a2.25 2.25 0 0 0 2.25 2.25h22.5a2.25 2.25 0 0 0 2.25-2.25V2.75A2.25 2.25 0 0 0 25.25.5Zm0 24.75H2.75V2.75h22.5v22.5ZM9.26 18.74a1.14 1.14 0 0 1 0-1.6l5.96-5.95H11.2a1.12 1.12 0 1 1 0-2.25h6.75a1.13 1.13 0 0 1 1.12 1.12v6.75a1.12 1.12 0 1 1-2.25 0v-4.03l-5.95 5.96a1.15 1.15 0 0 1-1.6 0Z" fill="#ED1A3B" />
+        </symbol>
+        <symbol id="communications" viewBox=" 0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 6h-7.5a3 3 0 0 0-3 3v3.42A2.98 2.98 0 0 0 15 18a3 3 0 0 0 3-3c0-1.11-.6-2.07-1.5-2.58V9H21v12H9V9h3V6H6v18h18m3 3H3V3h24m0-3H3a3 3 0 0 0-3 3v24a3 3 0 0 0 3 3h24a3 3 0 0 0 3-3V3c0-1.67-1.33-3-3-3Z" fill="#ED1A3B" />
+        </symbol>
+        <symbol id="traffic" viewBox-"0 0 36 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.75 27.5s-2.25 0-2.25-2.25 2.25-9 11.25-9S36 23 36 25.25s-2.25 2.25-2.25 2.25h-18Zm9-13.5a6.75 6.75 0 1 0 0-13.5 6.75 6.75 0 0 0 0 13.5ZM11.74 27.5c-.34-.7-.5-1.47-.49-2.25 0-3.05 1.53-6.19 4.36-8.37a14.23 14.23 0 0 0-4.36-.63c-9 0-11.25 6.75-11.25 9s2.25 2.25 2.25 2.25h9.49ZM10.12 14a5.63 5.63 0 1 0 0-11.25 5.63 5.63 0 0 0 0 11.25Z" fill="#ED1A3B" />
+        </symbol>
+        <symbol id="location" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 7c.37 0 .68-.13.94-.4.26-.25.4-.57.4-.93 0-.37-.14-.68-.4-.95-.26-.26-.57-.39-.94-.39s-.68.13-.94.4c-.26.26-.4.57-.4.94 0 .36.14.68.4.94.26.26.57.39.94.39Zm0 4.9a18.34 18.34 0 0 0 3.02-3.4c.65-1 .98-1.91.98-2.7 0-1.21-.39-2.2-1.16-2.98A3.86 3.86 0 0 0 6 1.67c-1.12 0-2.07.38-2.84 1.15A4.03 4.03 0 0 0 2 5.8c0 .79.33 1.7.98 2.7A18.34 18.34 0 0 0 6 11.9Zm0 1.77a22.15 22.15 0 0 1-4-4.25A6.6 6.6 0 0 1 .66 5.8c0-1.67.53-3 1.6-3.98A5.33 5.33 0 0 1 6 .33c1.41 0 2.65.5 3.72 1.49a5.16 5.16 0 0 1 1.61 3.98 6.6 6.6 0 0 1-1.32 3.62A22.17 22.17 0 0 1 6 13.67Z" fill="#ED1A3B" />
+        </symbol>
+        <symbol id="plus" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-width="2" d="M0 8h16M8 16V0" />
+        </symbol>
+        <symbol id="min" viewBox="0 0 16 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-width="2" d="M0 1h16" />
+        </symbol>
+    </svg>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img width="134px" src="/logo.png" /></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
-        </nav>
-    </header>
+   @await Html.PartialAsync("_Header")
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        
-    </footer>
+   @await Html.PartialAsync("_footer")
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

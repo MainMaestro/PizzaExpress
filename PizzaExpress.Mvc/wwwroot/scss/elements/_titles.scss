@@ -1,0 +1,29 @@
+.breadcrumbs__item {
+    display: inline;
+    font-size: 12px;
+    font-weight: 300;
+
+    @media (min-width: $bp-lg) {
+        font-size: 14px;
+    }
+}
+
+.breadcrumbs__item+.breadcrumbs__item:before {
+    padding: 8px;
+    color: #8C8C8C;
+    content: "—";
+}
+
+.breadcrumbs__item a {
+    color: #8C8C8C;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+    }
+}
+
+.breadcrumbs {
+    padding-bottom: 30px;
+}

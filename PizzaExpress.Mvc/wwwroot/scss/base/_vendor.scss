@@ -1,0 +1,144 @@
+.user-menu {
+	background: $color-primary;
+	padding: 30px;
+	border-radius: $border-radius_primary;
+}
+
+
+.user-nav-title {
+	font-weight: 700;
+	font-size: 30px;
+	margin-bottom: 20px;
+	color: #313131;
+}
+
+.user-menu-list__item {
+	font-size: 14px;
+	font-weight: 400;
+
+	a {
+		text-decoration: none;
+		color: #8c8c8c;
+		position: relative;
+	}
+
+	.user-menu-list__item_noti::after {
+		content: "";
+		margin-top: 1px;
+		position: absolute;
+		transform: translateY(-50%);
+		margin-left: 4px;
+		top: 50%;
+		border-radius: 50%;
+		background-color: #00960F;
+		width: 8px;
+		height: 8px;
+	}
+}
+
+.c-alert {
+	font-size: 14px;
+	padding: 5px 10px;
+	margin-bottom: 10px;
+}
+
+.c-badge_color {
+	color: #00960F;
+}
+
+.c-badge_color_error {
+	color: #ed1a3b !important;
+	border: 1px solid #ed1a3b !important;
+}
+
+.c-alert_style_default {
+	color: #00960F;
+	border: 1px solid #00960F;
+}
+
+.user-menu-list__item_primary {
+	padding: 18px 30px 30px 30px !important;
+}
+
+.c-modal_width_sm {
+	width: 500px;
+	max-width: 90%;
+}
+
+.c-modal_no_close {
+	.fancybox-close-small {
+		display: none !important;
+	}
+}
+
+.c-modal_style_primary {
+	margin-top: 80px;
+	padding: 20px 10px;
+	border-radius: 6px 6px 0px 0px;
+}
+
+.fancybox-slide {
+	padding: 0;
+}
+
+.fancybox-bg {
+	background: rgba(201, 201, 201, 0.4);
+}
+
+.fancybox-container {
+	backdrop-filter: blur(2px);
+}
+
+.fancybox-active {
+	overflow: hidden;
+}
+
+.auth-title {
+	font-size: 30px;
+	color: #313131;
+	font-weight: 700;
+	margin-bottom: 20px;
+}
+
+.header-popup {
+	.auth-link {
+		color: #ed1a3b;
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+	}
+
+	padding: 30px;
+
+	border-radius: $border-radius_primary;
+	background: #fff;
+	box-shadow: 0 15px 10px rgba(0, 0, 0, 0.15);
+}
+
+.auth-nav {
+	font-size: 10px;
+	line-height: 15px;
+}
+
+.auth-text {
+	font-size: 16px;
+	line-height: 24px;
+	margin-bottom: 20px;
+}
+
+.c-input {
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+.c-input_style_primary {
+	border: 1px solid #ebebeb;
+	font-size: 12px;
+	padding: 10px;
+}
+.c-input_size_primary {
+	height: 46px;
+}

@@ -1,0 +1,44 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@using PizzaExpress.Models;
+@inject SignInManager<User> SignIn
+<div class="header-popup @(SignIn.IsSignedIn(User)? "col-4": "col-5") " data-popup="auth">
+	@*<div class="header-popup__decor"></div> *@
+
+	@if (SignIn.IsSignedIn(User))
+	{
+		<div class="user-nav-title">Константин</div>
+		<ul class="user-menu-list">
+			<li class="user-menu-list__item"><a class="" href="#">Личные данные</a></li>
+			<li class="user-menu-list__item"><a class="user-menu-list__item_noti" href="#">Мои заказы</a></li>
+			<li class="user-menu-list__item"><a class="" href="#">Мои адреса</a></li>
+			<li class="user-menu-list__item"><a class="" href="#">Промокоды и акции</a></li>
+			<li class="user-menu-list__item user-menu-list__item_primary"><a href="#">Выйти</a></li>
+		</ul>
+	}
+	else
+	{
+		<div class="auth-title">Войти в аккаунт</div>
+		<p class="auth-text">Введите номер телефона и мы отправим код для входа в аккаунт</p>
+		<form method="POST" action="/ajax/handleFormError.json" data-ajax-form>
+			<form method="POST" action="/ajax/handleFormSuccess.json" data-ajax-form>
+				<form method="POST" action="/ajax/handleFormFatal.json" data-ajax-form>
+					<div data-form-result></div>
+					<div class="form-fields">
+						<div class="form-field">
+							<input class="c-input c-input_style_primary c-input_size_primary" type="tel" name="username" placeholder="+7 (000) 000-00-00">
+						</div>
+					</div>
+					<div class="form-controls">
+						<button id="authButton" class="c-btn c-btn_size_xl c-btn_style_primary c-btn_style_default c-btn_color_tetriary" type="submit">Войти</button>
+					</div>
+				</form>
+			</form>
+		</form>
+		<p class="auth-nav">
+			Нажимая кнопку “Войти” вы принимаете
+			<a href="#" class="auth-link">Соглашение об условиях доставки</a>
+			и
+			<a href="#" class="auth-link">Политику обработки персональных данных</a>
+		</p>
+	}
+</div>

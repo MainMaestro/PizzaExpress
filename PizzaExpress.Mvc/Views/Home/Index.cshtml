@@ -1,10 +1,287 @@
-﻿
+﻿@using PizzaExpress.Models;
+@model IEnumerable<Product>
+
 @{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
+<main class="c-main main_index">
     <div class="container">
-       
-    </div>
-</div>
+        <div class="c-banner c-banner_default c-banner_regular">
+            <div class="row">
+                <div class="c-banner__bg p-0">
+                    <img src="~/images/banner_lg.jpg" alt="" class="c-banner__img">
+                </div>
+                <div class="c-banner__order">
+                    
+                    <div class="row">
+                        <div class="banner__order_size col-12 col-lg-6">
+                           
+                           
+                            <div class="c-banner__txt banner__txt_size">
+                                3 средние пиццы<br>
+                                <span>по цене 2х</span>
+                            </div>
+                            <div class="c-banner__controls row">
+                                <div class="col-12 col-auto">
+                                    <a href="#" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_banner">Заказать</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="c-main__category">
+            <a class="categories__button c-btn c-btn_style_default c-btn_color_secondary c-btn_size_md_category" data-category-id="1" href="#">Пицца</a>
+            <a class="categories__button c-btn c-btn_style_default c-btn_color_secondary c-btn_size_md_category" data-category-id="2" href="#">Закуски</a>
+            <a class="categories__button c-btn c-btn_style_default c-btn_color_secondary c-btn_size_md_category" data-category-id="3" href="#">Соусы</a>
+            <a class="categories__button c-btn c-btn_style_default c-btn_color_secondary c-btn_size_md_category" data-category-id="4" href="#">Напитки</a>
+            <a class="categories__button c-btn c-btn_style_default c-btn_color_secondary c-btn_size_md_category" data-category-id="5" href="#">Сладкое</a>
+        </div>
+        <div class="catalog-section">
+            <div class="row">
+                <div class="catalog-section__item col-6 col-lg-3 col-sm-4" product-id="1">
+                    <div class="catalog-item">
+                        <div class="catalog-item__thumb">
+                            <img class="catalog-item__img" src="/images/Хот-дог.jpg" alt="">
+                        </div>
+                        <div class="catalog-item__title">Пицца Хот-дог</div>
+                        <div class="catalog-item__prices-block row">
+                            <div class="catalog-item__prices col-12 col-lg-6 ">
+                                <div class="catalog-item__cost">от 655 ₽</div>
+                            </div>
+                            <div class="catalog-item__controls col-12 col-lg-6">
+                                <a href="#" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Выбрать</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-section__item col-6 col-lg-3 col-sm-4" product-id="2">
+                    <div class="catalog-item">
+                        <div class="catalog-item__thumb">
+                            <img class="catalog-item__img" src="/images/Сицилия.jpg" alt="">
+                        </div>
+                        <div class="catalog-item__title">Пицца Сицилия</div>
+                        <div class="catalog-item__prices-block row">
+                            <div class="catalog-item__prices col-12 col-lg-6 ">
+                                <div class="catalog-item__cost">от 655 ₽</div>
+                            </div>
+                            <div class="catalog-item__controls col-12 col-lg-6">
+                                <a href="#" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Выбрать</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-section__item col-6 col-lg-3 col-sm-4" product-id="3">
+                    <div class="catalog-item">
+                        <div class="catalog-item__thumb">
+                            <img class="catalog-item__img" src="/images/Гавайская.jpg" alt="">
+                        </div>
+                        <div class="catalog-item__title">Пицца Гавайская</div>
+                        <div class="catalog-item__prices-block row">
+                            <div class="catalog-item__prices col-12 col-lg-6 ">
+                                <div class="catalog-item__cost">от 655 ₽</div>
+                            </div>
+                            <div class="catalog-item__controls col-12 col-lg-6">
+                                <a href="#" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Выбрать</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-section__item col-6 col-lg-3 col-sm-4" product-id="4">
+                    <div class="catalog-item">
+                        <div class="catalog-item__thumb">
+                            <img class="catalog-item__img" src="/images/Пепперони.jpg" alt="">
+                        </div>
+                        <div class="catalog-item__title">Пицца Пепперони</div>
+                        <div class="catalog-item__prices-block row">
+                            <div class="catalog-item__prices col-12 col-lg-6 ">
+                                <div class="catalog-item__cost">от 655 ₽</div>
+                            </div>
+                            <div class="catalog-item__controls col-12 col-lg-6">
+                                <a href="#" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Выбрать</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-section__item col-6 col-lg-3 col-sm-4" product-id="5">
+                    <div class="catalog-item">
+                        <div class="catalog-item__thumb">
+                            <img class="catalog-item__img" src="/images/Цезарь.jpg" alt="">
+                        </div>
+                        <div class="catalog-item__title">Пицца Цезарь</div>
+                        <div class="catalog-item__prices-block row">
+                            <div class="catalog-item__prices col-12 col-lg-6 ">
+                                <div class="catalog-item__cost">от 655 ₽</div>
+                            </div>
+                            <div class="catalog-item__controls col-12 col-lg-6">
+                                <a href="#" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Выбрать</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-section__item col-6 col-lg-3 col-sm-4" product-id="6">
+                    <div class="catalog-item">
+                        <div class="catalog-item__thumb">
+                            <img class="catalog-item__img" src="/images/Трюфельная.jpg" alt="">
+                        </div>
+                        <div class="catalog-item__title">Пицца Трюфельная</div>
+                        <div class="catalog-item__prices-block row">
+                            <div class="catalog-item__prices col-12 col-lg-6 ">
+                                <div class="catalog-item__cost">от 655 ₽</div>
+                            </div>
+                            <div class="catalog-item__controls col-12 col-lg-6">
+                                <a href="#" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Выбрать</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-section__item col-6 col-lg-3 col-sm-4" product-id="7">
+                    <div class="catalog-item">
+                        <div class="catalog-item__thumb">
+                            <img class="catalog-item__img" src="/images/Beyond.jpg" alt="">
+                        </div>
+                        <div class="catalog-item__title">Пицца Beyond</div>
+                        <div class="catalog-item__prices-block row">
+                            <div class="catalog-item__prices col-12 col-lg-6 ">
+                                <div class="catalog-item__cost">от 655 ₽</div>
+                            </div>
+                            <div class="catalog-item__controls col-12 col-lg-6">
+                                <a href="#" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Выбрать</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-section__item col-6 col-lg-3 col-sm-4" product-id="8">
+                    <div class="catalog-item">
+                        <div class="catalog-item__thumb">
+                            <img class="catalog-item__img" src="/images/Мясная.jpg" alt="">
+                        </div>
+                        <div class="catalog-item__title">Пицца Мясная</div>
+                        <div class="catalog-item__prices-block row">
+                            <div class="catalog-item__prices col-12 col-lg-6 ">
+                                <div class="catalog-item__cost">от 655 ₽</div>
+                            </div>
+                            <div class="catalog-item__controls col-12 col-lg-6">
+                                <a href="#" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Выбрать</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-section__item col-6 col-lg-3 col-sm-4" product-id="9">
+                    <div class="catalog-item">
+                        <div class="catalog-item__thumb">
+                            <img class="catalog-item__img" src="/images/Барбекю.jpg" alt="">
+                        </div>
+                        <div class="catalog-item__title">Пицца Барбекю</div>
+                        <div class="catalog-item__prices-block row">
+                            <div class="catalog-item__prices col-12 col-lg-6 ">
+                                <div class="catalog-item__cost">от 655 ₽</div>
+                            </div>
+                            <div class="catalog-item__controls col-12 col-lg-6">
+                                <a href="#" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Выбрать</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-section__item col-6 col-lg-3 col-sm-4" product-id="10">
+                    <div class="catalog-item">
+                        <div class="catalog-item__thumb">
+                            <img class="catalog-item__img" src="/images/Деревенская.jpg" alt="">
+                        </div>
+                        <div class="catalog-item__title">Пицца Деревенская</div>
+                        <div class="catalog-item__prices-block row">
+                            <div class="catalog-item__prices col-12 col-lg-6 ">
+                                <div class="catalog-item__cost">от 655 ₽</div>
+                            </div>
+                            <div class="catalog-item__controls col-12 col-lg-6">
+                                <a href="#" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Выбрать</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-section__item col-6 col-lg-3 col-sm-4" product-id="11">
+                    <div class="catalog-item">
+                        <div class="catalog-item__thumb">
+                            <img class="catalog-item__img" src="/images/Маргарита.jpg" alt="">
+                        </div>
+                        <div class="catalog-item__title">Пицца Маргарита</div>
+                        <div class="catalog-item__prices-block row">
+                            <div class="catalog-item__prices col-12 col-lg-6 ">
+                                <div class="catalog-item__cost">от 655 ₽</div>
+                            </div>
+                            <div class="catalog-item__controls col-12 col-lg-6">
+                                <a href="#" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Выбрать</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-section__item col-6 col-lg-3 col-sm-4" product-id="12">
+                    <div class="catalog-item">
+                        <div class="catalog-item__thumb">
+                            <img class="catalog-item__img" src="/images/Четыре сыра.jpg" alt="">
+                        </div>
+                        <div class="catalog-item__title">Пицца Четыре сыра</div>
+                        <div class="catalog-item__prices-block row">
+                            <div class="catalog-item__prices col-12 col-lg-6 ">
+                                <div class="catalog-item__cost">от 655 ₽</div>
+                            </div>
+                            <div class="catalog-item__controls col-12 col-lg-6">
+                                <a href="#" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Выбрать</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-section__item col-6 col-lg-3 col-sm-4" product-id="13">
+                    <div class="catalog-item">
+                        <div class="catalog-item__thumb">
+                            <img class="catalog-item__img" src="/images/Тунец.jpg" alt="">
+                        </div>
+                        <div class="catalog-item__title">Пицца с Тунцом</div>
+                        <div class="catalog-item__prices-block row">
+                            <div class="catalog-item__prices col-12 col-lg-6 ">
+                                <div class="catalog-item__cost">от 655 ₽</div>
+                            </div>
+                            <div class="catalog-item__controls col-12 col-lg-6">
+                                <a href="#" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Выбрать</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-section__item col-6 col-lg-3 col-sm-4" product-id="14">
+                    <div class="catalog-item">
+                        <div class="catalog-item__thumb">
+                            <img class="catalog-item__img" src="/images/Чесночная.jpg" alt="">
+                        </div>
+                        <div class="catalog-item__title">Пицца Чесночная</div>
+                        <div class="catalog-item__prices-block row">
+                            <div class="catalog-item__prices col-12 col-lg-6 ">
+                                <div class="catalog-item__cost">от 655 ₽</div>
+                            </div>
+                            <div class="catalog-item__controls col-12 col-lg-6">
+                                <a href="#" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Выбрать</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-section__item col-6 col-lg-3 col-sm-4" product-id="15">
+                    <div class="catalog-item">
+                        <div class="catalog-item__thumb">
+                            <img class="catalog-item__img" src="/images/Жюльен.jpg" alt="">
+                        </div>
+                        <div class="catalog-item__title">Пицца Жюльен</div>
+                        <div class="catalog-item__prices-block row">
+                            <div class="catalog-item__prices col-12 col-lg-6 ">
+                                <div class="catalog-item__cost">от 655 ₽</div>
+                            </div>
+                            <div class="catalog-item__controls col-12 col-lg-6">
+                                <a href="#" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Выбрать</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</main>

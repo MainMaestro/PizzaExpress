@@ -1,0 +1,44 @@
+﻿<header class="c-header">
+	<div class="container">
+		<div class="c-header__main">
+			<div class="c-header__items row">
+				<div class="col-6">
+					<div class="head-logo">
+						<a href="#Menu">
+							<img src="/logo.png" alt="">
+						</a>
+					</div>
+				</div>
+				<div class="col-6 text-sm-right">
+					<div class="header__points row">
+						<div class="header__point col-auto d-none d-md-block">
+							<a href="javascript:;" data-popup-toggle="basket">
+								<svg class="header__btn-icon">
+									<use href="#cart"></use>
+								</svg>
+							</a>
+						</div>
+						<div class="header__point col-auto d-none d-md-block">
+							<a class="header__btn" data-popup-toggle="auth">
+								<svg class="header__btn-icon">
+									<use href="#user"></use>
+								</svg>
+							</a>
+
+							<div class="header-popup col-5" data-popup="basket">
+							</div>
+							@await Html.PartialAsync("_UserPartial")
+							</div>
+						<div class="header__point col-auto">
+							<a href="#">
+								<svg class="header__btn-icon">
+									<use href="#menu"></use>
+								</svg>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>

@@ -1,0 +1,1 @@
+.breadcrumbs__item{display:inline;font-size:12px;font-weight:300}.breadcrumbs__item+.breadcrumbs__item:before{padding:8px;color:#8c8c8c;content:"—"}.breadcrumbs__item a{color:#8c8c8c;text-decoration:none}.breadcrumbs__item a:focus,.breadcrumbs__item a:hover{text-decoration:underline}.breadcrumbs{padding-bottom:30px}@media (min-width:1024px){.breadcrumbs__item{font-size:14px}}
