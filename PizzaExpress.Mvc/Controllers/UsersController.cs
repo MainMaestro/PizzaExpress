@@ -18,6 +18,10 @@ public class UsersController : Controller
     [HttpPost]
     public async Task<IActionResult> Login([Bind] LoginViewModel model)
     {
+        if (!ModelState.IsValid)
+        {
+            return Redirect(model.ReturnUrl);
+        }
         var user = await _signIn.UserManager.Users
             .FirstOrDefaultAsync(user => user.PhoneNumber == model.PhoneNumber);
         if (user is null)
