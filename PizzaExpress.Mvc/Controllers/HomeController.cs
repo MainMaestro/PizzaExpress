@@ -35,6 +35,14 @@ namespace PizzaExpress.Mvc.Controllers
         public IActionResult About()
         {
             return View();
+        } 
+        public IActionResult Sotrudnichestvo()
+        {
+            return View();
+        }
+        public IActionResult Restaurants()
+        {
+            return View();
         }
     }
 }
