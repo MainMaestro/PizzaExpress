@@ -2,7 +2,7 @@
 @using PizzaExpress.Models;
 @inject SignInManager<User> SignIn
 <div class="header-popup @(SignIn.IsSignedIn(User)? "col-4": "col-5") " data-popup="auth">
-	@*<div class="header-popup__decor"></div> *@
+	<div class="header-popup__decor"></div> 
 
 	@if (SignIn.IsSignedIn(User))
 	{
@@ -19,7 +19,7 @@
 	{
 		<div class="auth-title">Войти в аккаунт</div>
 		<p class="auth-text">Введите номер телефона и мы отправим код для входа в аккаунт</p>
-		<form method="POST" action="/ajax/handleFormError.json" data-ajax-form>
+		@*<form method="POST" action="/ajax/handleFormError.json" data-ajax-form>
 			<form method="POST" action="/ajax/handleFormSuccess.json" data-ajax-form>
 				<form method="POST" action="/ajax/handleFormFatal.json" data-ajax-form>
 					<div data-form-result></div>
@@ -33,7 +33,7 @@
 					</div>
 				</form>
 			</form>
-		</form>
+		</form>*@
 		<p class="auth-nav">
 			Нажимая кнопку “Войти” вы принимаете
 			<a href="#" class="auth-link">Соглашение об условиях доставки</a>
@@ -42,3 +42,5 @@
 		</p>
 	}
 </div>
+
+

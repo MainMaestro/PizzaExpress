@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="Views\Users\_LoginPartial.cshtml" />
     <None Include="wwwroot\images\appstore.png" />
     <None Include="wwwroot\images\bannerfr_lg.jpg" />
     <None Include="wwwroot\images\bannerfr_sm.jpg" />
