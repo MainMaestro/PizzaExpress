@@ -1,4 +1,7 @@
-﻿<header class="c-header">
+﻿@using Microsoft.AspNetCore.Identity;
+@using PizzaExpress.Models;
+@inject SignInManager<User> SignInManager
+<header class="c-header">
 	<div class="container">
 		<div class="c-header__main">
 			<div class="c-header__items row">
@@ -19,11 +22,37 @@
 							</a>
 						</div>
 						<div class="header__point col-auto d-none d-md-block">
-							<a class="header__btn" data-bs-toggle="modal" data-bs-target="#authModal">
-								<svg class="header__btn-icon">
-									<use href="#user"></use>
-								</svg>
-							</a>
+							@if (SignInManager.IsSignedIn(User))
+							{
+								<a class="header__btn" data-bs-toggle="modal" data-bs-target="#authModal">
+									<svg class="header__btn-icon">
+										<use href="#user"></use>
+									</svg>
+								</a>
+								<div class="modal fade" id="authModal" tabindex="-1" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered">
+										<div class="modal-content">
+
+											<div class="modal-header">
+												<h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+											</div>
+											<div class="modal-body">
+												@await Html.PartialAsync("~/Views/Users/_LoginPartial.cshtml")
+
+											</div>
+										</div>
+									</div>
+								</div>
+							}
+							else
+							{
+								<a class="header__btn" data-bs-toggle="modal" data-bs-target="#authModal">
+									<svg class="header__btn-icon">
+										<use href="#user"></use>
+									</svg>
+								</a>
+							}
+
 
 							<div class="header-popup col-5" data-popup="basket">
 							</div>
@@ -44,17 +73,5 @@
 			</div>
 		</div>
 	</div>
-	<div class="modal fade" id="authModal" tabindex="-1" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-				</div>
-				<div class="modal-body">
-								@await Html.PartialAsync("~/Views/Users/_LoginPartial.cshtml")
-					
-				</div>
-			</div>
-		</div>
-	</div>
+	
 </header>
