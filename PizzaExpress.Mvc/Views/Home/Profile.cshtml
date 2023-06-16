@@ -1,0 +1,75 @@
+﻿<div class="container">
+    <ul class="breadcrumbs">
+        <li class="breadcrumbs__item">
+            <a href="/">Главная</a>
+        </li>
+        <li class="breadcrumbs__item">
+            <span>Личные данные</span>
+        </li>
+    </ul>
+    <h1 class="c-title c-title_size_xl">Личные данные</h1>
+    <div class="container">
+        <div class="d-flex">
+            <div class="col-6 ">
+                <p>Имя</p>
+                <p>Email</p>
+                <p>Пароль</p>
+                <p>Место жительства</p>
+                <p>Номер Телефона</p>
+            </div>
+            <div class=" col-6">
+                <p>Константин</p>
+                <p>Konst@mail.ru</p>
+                <p>*******</p>
+                <p>Г. Королев, ул. Пионерская 10</p>
+                <p>+7999999999</p> 
+            </div>
+            
+        </div>
+        <div class="d-flex">
+            <div class="col-9">
+
+            </div>
+            <div class="m-2 ">
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#authModal3">Редактировать</button>
+
+                <div class="modal fade" id="authModal3" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Редактировать</h1>
+                            </div>
+                            <div class="modal-body d-flex">
+                                <div class="col-6 ">
+                                    <p>Имя</p>
+                                    <p>Email</p>
+                                    <p>Место жительства</p>
+                                    <p>Номер Телефона</p>
+                                </div>
+                                <div class=" col-6" style="display:grid;">
+                                    <input class="mb-3" value="Константин"/>
+                                    <input class="mb-3" value="Konst@mail.ru" />
+                                    <input class="mb-3" value="Г. Королев, ул. Пионерская 10" />
+                                    <input class="mb-3" value="+7999999999" />
+                                </div>
+
+                            </div>
+                            <div class="d-flex justify-content-end m-2">
+                                <button type="button" class="btn btn-danger me-1" data-bs-dismiss="modal">Закрыть без изменений</button>
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Сохранить</button>
+                            </div>
+                          
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+       
+       
+    </div>
+    </div>
+
