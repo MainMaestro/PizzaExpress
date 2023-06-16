@@ -37,7 +37,7 @@ public class UsersController : Controller
             await _signIn.UserManager.CreateAsync(user, DefaultPassword);
         }
 
-        await _signIn.SignInAsync(user, model.Remember);
+        await _signIn.PasswordSignInAsync(user, DefaultPassword, model.Remember, false);
         return Redirect(model.ReturnUrl);
     }
 }
