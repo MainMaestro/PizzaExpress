@@ -1,9 +1,10 @@
 @model LoginViewModel
 @{
-    Model.ReturnUrl = string.IsNullOrEmpty(Context.Request.Path) ? "~/" : $"~/{Context.Request.Path}";
+
+    var returnUrl = string.IsNullOrEmpty(Context.Request.Path) ? "~/" : $"~{Context.Request.Path}";
 }
 <form asp-controller="Users" asp-action="Login" method="post">
-    <input asp-for="ReturnUrl" hidden>
+    <input asp-for="ReturnUrl" value="@returnUrl" hidden>
     <div>
         <input asp-for="PhoneNumber" type="">
     </div>
