@@ -7,14 +7,11 @@
                     <a href="/">Главная</a>
                 </li>
                 <li class="breadcrumbs__item">
-                    <span>Франшиза<span>
+                    <span>Франшиза</span>
                 </li>
             </ul>
             <h1 class="c-title c-title_size_xl">Франшиза</h1>
-            <div class="c-main__category">
-                <a class="categories__button c-btn c-btn_style_default c-btn_color_secondary c-btn_size_md_category" data-category-id="1" href="#">Кафе-ресторан</a>
-                <a class="categories__button c-btn c-btn_style_default c-btn_color_secondary c-btn_size_md_category" data-category-id="2" href="#">Доставка</a>
-            </div>
+            
             <div class="row">
                 <div class="content-item col-12 col-lg-8 pb-2 pt-3">
                     <p>Предлагаем открыть собственную пиццерию Pizza express на условиях взаимовыгодного сотрудничества в Вашем городе. Содействуем в развитии Вашего бизнеса от подбора помещения до поставки продукции с собственного производства сети. <br><br>Став Партнером компании Вы получите налаженный механизм работы, сформировавшуюся клиентскую базу и набор готовых решений организации бизнеса. Мы стабильно растем и развиваемся, используя наработанный опыт и слаженную командную работу. <br><br>Pizza express 24 – это молодая, но динамично развивающаяся сеть пиццерий, основанная на принципах быстрого и качественного обслуживания и питания, работающая в модном формате take-away. Это формат заведений, специализирующихся на системе «готовые блюда на вынос».</p>
@@ -548,7 +545,7 @@
                                 </div>
                                 <div class="c-banner__controls row">
                                     <div class="col-12 col-auto">
-                                        <a href="#" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_banner">Отправить заявку</a>
+                                    <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_banner" data-bs-toggle="modal" data-bs-target="#exampleModal">Отправить заявку</button>
                                     </div>
                                 </div>
                             </div>
@@ -558,4 +555,43 @@
                 </div>
             </div>
     </main>
- 
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Оставтье заявку</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex">
+                <div class="col-6 ">
+                    <p>Имя</p>
+                    <p>Номер Телефона</p>
+                </div>
+                <div class=" col-6" style="display:grid;">
+                    <input class="mb-3" value="Константин" />
+                    <input class="mb-3" value="+7999999999" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                <button type="button" class="btn c-btn_color_primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Оставить заявку</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModalToggle2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Спасибо за заявку</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex">
+                Спасибо, с вами свяжутся в течении ближайщих 3-ех рабочих дней.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Хорошо</button>
+            </div>
+        </div>
+    </div>
+</div>
