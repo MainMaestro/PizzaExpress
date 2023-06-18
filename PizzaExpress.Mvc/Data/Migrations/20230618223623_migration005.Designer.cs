@@ -12,15 +12,15 @@ using PizzaExpress.Mvc.Data;
 namespace PizzaExpress.Mvc.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230616185336_Migration001")]
-    partial class Migration001
+    [Migration("20230618223623_migration005")]
+    partial class migration005
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.5")
+                .HasAnnotation("ProductVersion", "7.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -178,12 +178,44 @@ namespace PizzaExpress.Mvc.Data.Migrations
                     b.ToTable("Carts");
                 });
 
-            modelBuilder.Entity("PizzaExpress.Models.Product", b =>
+            modelBuilder.Entity("PizzaExpress.Models.OrderItem", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CartId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProductId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CartId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("OrderItem");
+                });
+
+            modelBuilder.Entity("PizzaExpress.Models.Products", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImgUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -197,6 +229,10 @@ namespace PizzaExpress.Mvc.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Products");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Products");
+
+                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("PizzaExpress.Models.User", b =>
@@ -276,6 +312,27 @@ namespace PizzaExpress.Mvc.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("PizzaExpress.Models.Pizza", b =>
+                {
+                    b.HasBaseType("PizzaExpress.Models.Products");
+
+                    b.Property<int>("Diameter")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Ingredients")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasDiscriminator().HasValue("Pizza");
+                });
+
+            modelBuilder.Entity("PizzaExpress.Models.Sauce", b =>
+                {
+                    b.HasBaseType("PizzaExpress.Models.Products");
+
+                    b.HasDiscriminator().HasValue("Sauce");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -336,6 +393,26 @@ namespace PizzaExpress.Mvc.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("PizzaExpress.Models.OrderItem", b =>
+                {
+                    b.HasOne("PizzaExpress.Models.Cart", null)
+                        .WithMany("Items")
+                        .HasForeignKey("CartId");
+
+                    b.HasOne("PizzaExpress.Models.Products", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("PizzaExpress.Models.Cart", b =>
+                {
+                    b.Navigation("Items");
                 });
 #pragma warning restore 612, 618
         }

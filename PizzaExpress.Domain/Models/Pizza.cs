@@ -1,6 +1,6 @@
 ﻿namespace PizzaExpress.Models;
 
-public class Pizza : Product
+public class Pizza : Products
 {
     public int Diameter { get; set; }
     public string Ingredients { get; set; }

@@ -1,5 +1,5 @@
 ﻿@using PizzaExpress.Models;
-@model IEnumerable<Product>
+@model IEnumerable<Products>
 
 @{
     ViewData["Title"] = "Home Page";
@@ -33,32 +33,39 @@
                 </div>
             </div>
         </div>
-       
-        <div class="catalog-section" id="cards">
-            <div class="row">
-                <div class="catalog-section__item col-6 col-lg-3 col-sm-4" product-id="1">
+
+        @foreach (var Pizzas in Model)
+        {
+            <div class="catalog-section__item col-6 col-lg-3 col-sm-4" product-id="1">
+                <a asp-controller="Home" asp-action="Index" asp-route-id="@Pizzas.Id" class="nav-link fs-3 text-center text-decoration-none">
                     <div class="catalog-item">
                         <div class="catalog-item__thumb">
-                            <img class="catalog-item__img" src="/images/Хот-дог.jpg" alt="">
+                            <img class="catalog-item__img" src="@Pizzas.ImgUrl" alt="">
                         </div>
-                        <div class="catalog-item__title">Пицца Хот-дог</div>
-                        <div class="catalog-item__prices-block row">
-                            <div class="catalog-item__prices col-12 col-lg-6 ">
-                                <div class="catalog-item__cost">от 655 ₽</div>
-                            </div>
-                            <div class="catalog-item__controls col-12 col-lg-6">
-                                
-                                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                                    Выбрать
-                                </button>
-                               
-
-                               
-                            </div>
-                            
-                        </div>
+                        <div class="catalog-item__title">@Pizzas.Name</div>
+                       
                     </div>
+                    </a>
+                <div class="catalog-item__prices-block row">
+                    <div class="catalog-item__prices col-12 col-lg-6 ">
+                        <div class="catalog-item__cost">от 655 ₽</div>
+                    </div>
+                    <div class="catalog-item__controls col-12 col-lg-6">
+
+                        <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                            Выбрать
+                        </button>
+
+                    </div>
+
                 </div>
+                
+            </div>
+           
+        }
+        <div class="catalog-section" id="cards">
+            <div class="row">
+               
               
                 <div class="catalog-section__item col-6 col-lg-3 col-sm-4" product-id="2">
                     <div class="catalog-item">

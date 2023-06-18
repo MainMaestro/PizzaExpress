@@ -1,6 +1,6 @@
 ﻿namespace PizzaExpress.Models;
 
-public class Sauce : Product
+public class Sauce : Products
 {
 
 }

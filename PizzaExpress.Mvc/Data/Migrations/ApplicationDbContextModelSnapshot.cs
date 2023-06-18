@@ -17,7 +17,7 @@ namespace PizzaExpress.Mvc.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.5")
+                .HasAnnotation("ProductVersion", "7.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -175,7 +175,31 @@ namespace PizzaExpress.Mvc.Data.Migrations
                     b.ToTable("Carts");
                 });
 
-            modelBuilder.Entity("PizzaExpress.Models.Product", b =>
+            modelBuilder.Entity("PizzaExpress.Models.OrderItem", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CartId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProductId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CartId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("OrderItem");
+                });
+
+            modelBuilder.Entity("PizzaExpress.Models.Products", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -185,6 +209,10 @@ namespace PizzaExpress.Mvc.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImgUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -199,7 +227,7 @@ namespace PizzaExpress.Mvc.Data.Migrations
 
                     b.ToTable("Products");
 
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Product");
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Products");
 
                     b.UseTphMappingStrategy();
                 });
@@ -283,7 +311,7 @@ namespace PizzaExpress.Mvc.Data.Migrations
 
             modelBuilder.Entity("PizzaExpress.Models.Pizza", b =>
                 {
-                    b.HasBaseType("PizzaExpress.Models.Product");
+                    b.HasBaseType("PizzaExpress.Models.Products");
 
                     b.Property<int>("Diameter")
                         .HasColumnType("int");
@@ -297,7 +325,7 @@ namespace PizzaExpress.Mvc.Data.Migrations
 
             modelBuilder.Entity("PizzaExpress.Models.Sauce", b =>
                 {
-                    b.HasBaseType("PizzaExpress.Models.Product");
+                    b.HasBaseType("PizzaExpress.Models.Products");
 
                     b.HasDiscriminator().HasValue("Sauce");
                 });
@@ -362,6 +390,26 @@ namespace PizzaExpress.Mvc.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("PizzaExpress.Models.OrderItem", b =>
+                {
+                    b.HasOne("PizzaExpress.Models.Cart", null)
+                        .WithMany("Items")
+                        .HasForeignKey("CartId");
+
+                    b.HasOne("PizzaExpress.Models.Products", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("PizzaExpress.Models.Cart", b =>
+                {
+                    b.Navigation("Items");
                 });
 #pragma warning restore 612, 618
         }
