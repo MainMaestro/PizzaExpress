@@ -1,97 +1,117 @@
-﻿
-//using PizzaExpress.Mvc.Data;
-//using Microsoft.AspNetCore.Identity;
-//using Microsoft.EntityFrameworkCore;
-//using System.Security.Claims;
-//using PizzaExpress.Models;
+﻿using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using PizzaExpress.Models;
+using PizzaExpress.Mvc.Data;
+using PizzaExpress.Mvc.Interfaces.Managers;
 
-//namespace PizzaExpress.Mvc.Managers;
+namespace PizzaExpress.Mvc.Managers;
 
-//    public class CartManager
-//    {
-//        private readonly ApplicationDbContext _context;
-//        private readonly UserManager<IdentityUser> _userManager;
+public class CartManager : ICartManager
+{
+	private readonly ApplicationDbContext _context;
+	private readonly UserManager<User> _userManager;
+	private readonly IProductManager _productManager;
 
-//        public CartManager(ApplicationDbContext context, UserManager<IdentityUser> userManager)
-//        {
-//            _context = context;
-//            _userManager = userManager;
-//        }
-//        private Cart Create(string userId)
-//        {
-//            var cart = new Cart { UserId = userId };
-//            _context.Carts.Add(cart);
-//            _context.SaveChanges();
-//            return cart;
-//        }
-//        private string GetUserId(ClaimsPrincipal user)
-//        {
-//            return _userManager.GetUserId(user) ?? throw new Exception("User not authorized");
-//        }
-//        public Cart AddProduct(ClaimsPrincipal user, Product product)
-//        {
-//            var userId = GetUserId(user);
-//            var cart = GetCart(user);
+	public CartManager(ApplicationDbContext context, UserManager<User> userManager, IProductManager productManager)
+	{
+		_context = context;
+		_userManager = userManager;
+		_productManager = productManager;
+	}
+	public Cart GetCart(ClaimsPrincipal user)
+	{
+		var userId = GetUserId(user);
+		var cart = _context.Carts
+			.Include(c => c.Items)
+			.ThenInclude(c => c.Product)
+			.FirstOrDefault(c => c.UserId == userId) 
+			?? Create(userId);
 
-//            var currentItem = cart.Items.FirstOrDefault(i => i.ProductId == product.Id);
+		return cart;
+	}
+	public async Task<Cart> GetCart(ClaimsPrincipal user, CancellationToken cancellationToken = default)
+	{
+		var userId = GetUserId(user);
+		var cart = await _context.Carts
+			.Include(c => c.Items)
+			.ThenInclude(c => c.Product)
+			.FirstOrDefaultAsync(c => c.UserId == userId, cancellationToken) ?? Create(userId);
 
-//            if (currentItem is not null)
-//                currentItem.Count++;
-//            else
-//                cart.Items.Add(new OrderItem { Product = product, Count = 1 });
+		return cart;
+	}
+	public async Task<Cart> AddProduct(ClaimsPrincipal user, string productId, CancellationToken cancellationToken = default)
+	{
+		var product = await _productManager.GetProduct(productId, cancellationToken);
 
-//            _context.Carts.Update(cart);
-//            _context.SaveChanges();
+		if (product is null)
+			return GetCart(user);
 
-//            return cart;
-//        }
-//        public Cart AddProduct(ClaimsPrincipal user, string productId)
-//        {
-//            var product = _context.Products.FirstOrDefault(c => c.Id == productId);
+		return AddProduct(user, product);
+	}
+	public async Task<Cart> RemoveProduct(ClaimsPrincipal user, string productId, CancellationToken cancellationToken = default)
+	{
+		var product = await _productManager.GetProduct(productId, cancellationToken);
+	
+		if (product is null)
+			return GetCart(user);
 
-//            if (product is null)
-//                return GetCart(user);
+		return RemoveProduct(user, product);
+	}
+	private Cart Create(string userId)
+	{
+		var cart = new Cart { UserId = userId };
+		_context.Carts.Add(cart);
+		_context.SaveChanges();
+		return cart;
+	}
+	private Cart AddProduct(ClaimsPrincipal user, Product product)
+	{
+		var cart = GetCart(user);
 
-//            return AddProduct(user, product);
-//        }
-//        public Cart RemoveProduct(ClaimsPrincipal user, Product product)
-//        {
-//            var userId = GetUserId(user);
-//            var cart = GetCart(user);
+		var currentItem = cart.Items.FirstOrDefault(i => i.ProductId == product.Id);
 
-//            var currentItem = cart.Items.FirstOrDefault(i => i.ProductId == product.Id);
-//            if (currentItem is not null)
-//            {
-//                currentItem.Count--;
-//                if (currentItem.Count <= 0)
-//                    cart.Items.Remove(currentItem);
-//            }
+		if (currentItem is not null)
+			currentItem.Quantity++;
+		else
+			cart.Items.Add(new OrderItem { Product = product, Quantity = 1 });
 
-//            _context.Carts.Update(cart);
-//            _context.SaveChanges();
+		_context.Carts.Update(cart);
+		_context.SaveChanges();
 
-//            return cart;
-//        }
-//        public Cart RemoveProduct(ClaimsPrincipal user, string productId)
-//        {
-//            var product = _context.Products.FirstOrDefault(c => c.Id == productId);
+		return cart;
+	}
+	
+	private Cart RemoveProduct(ClaimsPrincipal user, Product product)
+	{
+		var cart = GetCart(user);
 
-//            if (product is null)
-//                return GetCart(user);
+		var currentItem = cart.Items.FirstOrDefault(i => i.ProductId == product.Id);
+		if (currentItem is not null)
+		{
+			currentItem.Quantity--;
+			if (currentItem.Quantity <= 0)
+				cart.Items.Remove(currentItem);
+		}
 
-//            return RemoveProduct(user, product);
-//        }
-//        public Cart GetCart(ClaimsPrincipal user)
-//        {
-//            var userId = GetUserId(user);
-//            var cart = _context.Carts
-//                .Include(c => c.Items)
-//                .ThenInclude(c => c.Product)
-//                .FirstOrDefault(c => c.UserId == userId);
+		_context.Carts.Update(cart);
+		_context.SaveChanges();
 
-//            cart ??= Create(userId);
+		return cart;
+	}
+	
+	private string GetUserId(ClaimsPrincipal user)
+	{
+		return _userManager.GetUserId(user) ?? throw new Exception("User not authorized");
+	}
 
-//            return cart;
-//        }
-//    }
+	public async Task<Cart> ClearCart(ClaimsPrincipal user, CancellationToken cancellationToken = default)
+	{
+		var cart = GetCart(user);
+		cart.Items = new List<OrderItem>();
 
+		_context.Carts.Update(cart);
+		await _context.SaveChangesAsync(cancellationToken);
+		return cart;
+	}
+}

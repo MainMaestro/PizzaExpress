@@ -1,9 +1,7 @@
 ﻿namespace PizzaExpress.Models;
 
-public class Pizza : DbEntity
+public class Pizza : Product
 {
-    public Product Product { get; set; }
-    public int ProductId { get; set; }
     public int Diameter { get; set; }
-    public String Ingredients { get; set; }
+    public string Ingredients { get; set; }
 }

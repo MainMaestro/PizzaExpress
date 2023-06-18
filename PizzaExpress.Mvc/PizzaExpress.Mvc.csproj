@@ -82,6 +82,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Interfaces\Stores\" />
     <Folder Include="Views\Cart\" />
   </ItemGroup>
 

@@ -1,8 +1,8 @@
 ﻿namespace PizzaExpress.Models;
 
-public class Product : DbEntity
+public abstract class Product : DbEntity
 {
-    public String Name { get; set; }
-    public String Description { get; set; }
-    public Decimal Price { get; set; }
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public decimal Price { get; set; }
 }

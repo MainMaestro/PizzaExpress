@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using PizzaExpress.Models;
 using PizzaExpress.Mvc.Data;
+using PizzaExpress.Mvc.Interfaces.Managers;
+using PizzaExpress.Mvc.Managers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,12 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+
+builder.Services
+    .AddScoped<ICartManager, CartManager>()
+    .AddScoped<IOrderManager, OrderManager>()
+    .AddScoped<IProductManager, ProductManager>()
+    ;
 
 var app = builder.Build();
 
