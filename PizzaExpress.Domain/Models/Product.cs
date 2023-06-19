@@ -1,6 +1,6 @@
 ﻿namespace PizzaExpress.Models;
 
-public abstract class Products : DbEntity
+public abstract class Product : DbEntity
 {
     public string Name { get; set; }
     public string Description { get; set; }

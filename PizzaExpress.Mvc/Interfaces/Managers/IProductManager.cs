@@ -4,5 +4,5 @@ namespace PizzaExpress.Mvc.Interfaces.Managers;
 
 public interface IProductManager
 {
-    Task<Products?> GetProduct(string id, CancellationToken cancellationToken = default); 
+    Task<Product?> GetProduct(string id, CancellationToken cancellationToken = default); 
 }

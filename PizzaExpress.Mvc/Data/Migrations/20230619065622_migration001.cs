@@ -5,7 +5,7 @@
 namespace PizzaExpress.Mvc.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class migration004 : Migration
+    public partial class migration001 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

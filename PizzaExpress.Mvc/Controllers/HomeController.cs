@@ -22,7 +22,8 @@ public class HomeController : Controller
 
     public IActionResult Index(string id)
     {
-        var products = context.Products.Where(c => c.Id == id).ToArray();
+        
+        //var products = context.Pizzas.Where(c => c.ProductId == id).ToArray();
       
        
         return View();

@@ -1,5 +1,5 @@
 ﻿@using PizzaExpress.Models;
-@model IEnumerable<Products>
+@model IEnumerable<Product>
 
 @{
     ViewData["Title"] = "Home Page";
@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        @foreach (var Pizzas in Model)
+      @*  @foreach (var Pizzas in Model)
         {
             <div class="catalog-section__item col-6 col-lg-3 col-sm-4" product-id="1">
                 <a asp-controller="Home" asp-action="Index" asp-route-id="@Pizzas.Id" class="nav-link fs-3 text-center text-decoration-none">
@@ -62,11 +62,32 @@
                 
             </div>
            
-        }
+        }*@
+        
         <div class="catalog-section" id="cards">
+
             <div class="row">
-               
-              
+
+
+                        <div class="catalog-section__item col-6 col-lg-3 col-sm-4" product-id="2">
+                            <div class="catalog-item">
+                                <div class="catalog-item__thumb">
+                                    <img class="catalog-item__img" src="/images/Хот-дог.jpg" alt="">
+                                </div>
+                                <div class="catalog-item__title">Пицца Хот-дог</div>
+                                <div class="catalog-item__prices-block row">
+                                    <div class="catalog-item__prices col-12 col-lg-6 ">
+                                        <div class="catalog-item__cost">от 655 ₽</div>
+                                    </div>
+                                    <div class="catalog-item__controls col-12 col-lg-6">
+                                        <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                            Выбрать
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
                 <div class="catalog-section__item col-6 col-lg-3 col-sm-4" product-id="2">
                     <div class="catalog-item">
                         <div class="catalog-item__thumb">
@@ -332,8 +353,7 @@
             </div>
             <div class="modal-body">
                 <div class="catalog-item">
-                   
-                        <img class="catalog-item__img position-relative" width="100%" src="/images/Хот-дог.jpg" alt="">
+                        <img class="catalog-item__img position-relative" style="width:100%;" src="/images/Хот-дог.jpg" alt="">
                  
                     <div class="catalog-item__title text-dark">Пицца Хот-дог</div>
                     <div class="catalog-item__prices-block row">
@@ -347,7 +367,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="c-btn c-btn_style_default c-btn_color_tetriary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-dismiss="modal">закрыть</button>
-                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Добавить в корзину</button>
+                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-target="#Modal3" data-bs-toggle="modal">Добавить в корзину</button>
             </div>
         </div>
     </div>
@@ -364,8 +384,8 @@
                    
                    
                         
-                    <div class="catalog-item__thumb" style="width:200px;">
-                            <img class="catalog-item__img" src="/images/Сицилия.jpg" alt="">
+                    <div class="catalog-item__thumb" >
+                        <img class="catalog-item__img" style="width:100%;" src="/images/Сицилия.jpg" alt="">
                     </div>
                         <div class="catalog-item__title">Пицца Сицилия</div>
                     <div class="catalog-item__prices-block row">
@@ -379,7 +399,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="c-btn c-btn_style_default c-btn_color_tetriary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-dismiss="modal">закрыть</button>
-                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Добавить в корзину</button>
+                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-target="#Modal3" data-bs-toggle="modal">Добавить в корзину</button>
             </div>
         </div>
     </div>
@@ -393,8 +413,8 @@
                             </div>
                             <div class="modal-body">
                                 <div class="catalog-item">
-                                    <div class="catalog-item__thumb" style="width:200px;">
-                        <img class="catalog-item__img" src="/images/Гавайская.jpg" alt="">
+                                    <div class="catalog-item__thumb" >
+                        <img class="catalog-item__img" style="width:100%;" src="/images/Гавайская.jpg" alt="">
                                     </div>
                     <div class="catalog-item__title text-dark">Пицца Гавайская</div>
                                     <div class="catalog-item__prices-block row">
@@ -408,7 +428,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="c-btn c-btn_style_default c-btn_color_tetriary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-dismiss="modal">закрыть</button>
-                                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Добавить в корзину</button>
+                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-target="#Modal3" data-bs-toggle="modal">Добавить в корзину</button>
                             </div>
                         </div>
                     </div>
@@ -422,10 +442,10 @@
                             </div>
                             <div class="modal-body">
                                 <div class="catalog-item">
-                                    <div class="catalog-item__thumb" style="width:200px;">
-                                        <img class="catalog-item__img" src="/images/Хот-дог.jpg" alt="">
+                                    <div class="catalog-item__thumb" >
+                        <img class="catalog-item__img" style="width:100%;" src="/images/Пепперони.jpg" alt="">
                                     </div>
-                                    <div class="catalog-item__title text-dark">Пицца Хот-дог</div>
+                    <div class="catalog-item__title text-dark">Пицца Пепперони</div>
                                     <div class="catalog-item__prices-block row">
                                         
                                         <p class="m-0">Состав: пицце-соус, сосиски, колбаски охотничьи, лук красный, огурчик маринованный, сыр моцарелла, кетчуп, горчица, жаренный лук Криспи. Вес: 730 гр.</p>
@@ -437,7 +457,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="c-btn c-btn_style_default c-btn_color_tetriary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-dismiss="modal">закрыть</button>
-                                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Добавить в корзину</button>
+                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-target="#Modal3" data-bs-toggle="modal">Добавить в корзину</button>
                             </div>
                         </div>
                     </div>
@@ -451,10 +471,10 @@
                             </div>
                             <div class="modal-body">
                                 <div class="catalog-item">
-                                    <div class="catalog-item__thumb" style="width:200px;">
-                                        <img class="catalog-item__img" src="/images/Хот-дог.jpg" alt="">
+                                    <div class="catalog-item__thumb" >
+                        <img class="catalog-item__img" style="width:100%;" src="/images/Цезарь.jpg" alt="">
                                     </div>
-                                    <div class="catalog-item__title text-dark">Пицца Хот-дог</div>
+                    <div class="catalog-item__title text-dark">Пицца Цезарь</div>
                                     <div class="catalog-item__prices-block row">
                                         
                                         <p class="m-0">Состав: пицце-соус, сосиски, колбаски охотничьи, лук красный, огурчик маринованный, сыр моцарелла, кетчуп, горчица, жаренный лук Криспи. Вес: 730 гр.</p>
@@ -466,7 +486,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="c-btn c-btn_style_default c-btn_color_tetriary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-dismiss="modal">закрыть</button>
-                                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Добавить в корзину</button>
+                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-target="#Modal3" data-bs-toggle="modal">Добавить в корзину</button>
                             </div>
                         </div>
                     </div>
@@ -480,10 +500,10 @@
                             </div>
                             <div class="modal-body">
                                 <div class="catalog-item">
-                                    <div class="catalog-item__thumb" style="width:200px;">
-                                        <img class="catalog-item__img" src="/images/Хот-дог.jpg" alt="">
+                                    <div class="catalog-item__thumb" >
+                        <img class="catalog-item__img" style="width:100%;" src="/images/Трюфельная.jpg" alt="">
                                     </div>
-                                    <div class="catalog-item__title text-dark">Пицца Хот-дог</div>
+                    <div class="catalog-item__title text-dark">Пицца Трюфельная</div>
                                     <div class="catalog-item__prices-block row">
                                         
                                         <p class="m-0">Состав: пицце-соус, сосиски, колбаски охотничьи, лук красный, огурчик маринованный, сыр моцарелла, кетчуп, горчица, жаренный лук Криспи. Вес: 730 гр.</p>
@@ -495,7 +515,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="c-btn c-btn_style_default c-btn_color_tetriary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-dismiss="modal">закрыть</button>
-                                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Добавить в корзину</button>
+                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-target="#Modal3" data-bs-toggle="modal">Добавить в корзину</button>
                             </div>
                         </div>
                     </div>
@@ -509,10 +529,10 @@
                             </div>
                             <div class="modal-body">
                                 <div class="catalog-item">
-                                    <div class="catalog-item__thumb" style="width:200px;">
-                                        <img class="catalog-item__img" src="/images/Хот-дог.jpg" alt="">
+                                    <div class="catalog-item__thumb" >
+                        <img class="catalog-item__img" style="width:100%;" src="/images/Beyond.jpg" alt="">
                                     </div>
-                                    <div class="catalog-item__title text-dark">Пицца Хот-дог</div>
+                    <div class="catalog-item__title text-dark">Пицца Beyond</div>
                                     <div class="catalog-item__prices-block row">
                                         
                                         <p class="m-0">Состав: пицце-соус, сосиски, колбаски охотничьи, лук красный, огурчик маринованный, сыр моцарелла, кетчуп, горчица, жаренный лук Криспи. Вес: 730 гр.</p>
@@ -524,7 +544,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="c-btn c-btn_style_default c-btn_color_tetriary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-dismiss="modal">закрыть</button>
-                                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Добавить в корзину</button>
+                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-target="#Modal3" data-bs-toggle="modal">Добавить в корзину</button>
                             </div>
                         </div>
                     </div>
@@ -538,10 +558,10 @@
                             </div>
                             <div class="modal-body">
                                 <div class="catalog-item">
-                                    <div class="catalog-item__thumb" style="width:200px;">
-                                        <img class="catalog-item__img" src="/images/Хот-дог.jpg" alt="">
+                                    <div class="catalog-item__thumb" >
+                        <img class="catalog-item__img" style="width:100%;" src="/images/Мясная.jpg" alt="">
                                     </div>
-                                    <div class="catalog-item__title text-dark">Пицца Хот-дог</div>
+                    <div class="catalog-item__title text-dark">Пицца Мясная</div>
                                     <div class="catalog-item__prices-block row">
                                         
                                         <p class="m-0">Состав: пицце-соус, сосиски, колбаски охотничьи, лук красный, огурчик маринованный, сыр моцарелла, кетчуп, горчица, жаренный лук Криспи. Вес: 730 гр.</p>
@@ -553,7 +573,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="c-btn c-btn_style_default c-btn_color_tetriary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-dismiss="modal">закрыть</button>
-                                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Добавить в корзину</button>
+                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-target="#Modal3" data-bs-toggle="modal">Добавить в корзину</button>
                             </div>
                         </div>
                     </div>
@@ -567,10 +587,10 @@
                             </div>
                             <div class="modal-body">
                                 <div class="catalog-item">
-                                    <div class="catalog-item__thumb" style="width:200px;">
-                                        <img class="catalog-item__img" src="/images/Хот-дог.jpg" alt="">
+                                    <div class="catalog-item__thumb">
+                        <img class="catalog-item__img" style="width:100%;" src="/images/Барбекю.jpg" alt="">
                                     </div>
-                                    <div class="catalog-item__title text-dark">Пицца Хот-дог</div>
+                    <div class="catalog-item__title text-dark">Пицца Барбекю</div>
                                     <div class="catalog-item__prices-block row">
                                         
                                         <p class="m-0">Состав: пицце-соус, сосиски, колбаски охотничьи, лук красный, огурчик маринованный, сыр моцарелла, кетчуп, горчица, жаренный лук Криспи. Вес: 730 гр.</p>
@@ -582,7 +602,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="c-btn c-btn_style_default c-btn_color_tetriary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-dismiss="modal">закрыть</button>
-                                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Добавить в корзину</button>
+                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-target="#Modal3" data-bs-toggle="modal">Добавить в корзину</button>
                             </div>
                         </div>
                     </div>
@@ -596,10 +616,10 @@
                             </div>
                             <div class="modal-body">
                                 <div class="catalog-item">
-                                    <div class="catalog-item__thumb" style="width:200px;">
-                                        <img class="catalog-item__img" src="/images/Хот-дог.jpg" alt="">
+                                    <div class="catalog-item__thumb" >
+                        <img class="catalog-item__img" style="width:100%;" src="/images/Деревенская.jpg" alt="">
                                     </div>
-                                    <div class="catalog-item__title text-dark">Пицца Хот-дог</div>
+                    <div class="catalog-item__title text-dark">Пицца Деревенская</div>
                                     <div class="catalog-item__prices-block row">
                                         
                                         <p class="m-0">Состав: пицце-соус, сосиски, колбаски охотничьи, лук красный, огурчик маринованный, сыр моцарелла, кетчуп, горчица, жаренный лук Криспи. Вес: 730 гр.</p>
@@ -611,7 +631,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="c-btn c-btn_style_default c-btn_color_tetriary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-dismiss="modal">закрыть</button>
-                                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Добавить в корзину</button>
+                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-target="#Modal3" data-bs-toggle="modal">Добавить в корзину</button>
                             </div>
                         </div>
                     </div>
@@ -625,10 +645,10 @@
                             </div>
                             <div class="modal-body">
                                 <div class="catalog-item">
-                                    <div class="catalog-item__thumb" style="width:200px;">
-                                        <img class="catalog-item__img" src="/images/Хот-дог.jpg" alt="">
+                                    <div class="catalog-item__thumb" >
+                        <img class="catalog-item__img" style="width:100%;" src="/images/Маргарита.jpg" alt="">
                                     </div>
-                                    <div class="catalog-item__title text-dark">Пицца Хот-дог</div>
+                    <div class="catalog-item__title text-dark">Пицца Маргарита</div>
                                     <div class="catalog-item__prices-block row">
                                         
                                         <p class="m-0">Состав: пицце-соус, сосиски, колбаски охотничьи, лук красный, огурчик маринованный, сыр моцарелла, кетчуп, горчица, жаренный лук Криспи. Вес: 730 гр.</p>
@@ -640,7 +660,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="c-btn c-btn_style_default c-btn_color_tetriary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-dismiss="modal">закрыть</button>
-                                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Добавить в корзину</button>
+                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-target="#Modal3" data-bs-toggle="modal">Добавить в корзину</button>
                             </div>
                         </div>
                     </div>
@@ -654,10 +674,10 @@
                             </div>
                             <div class="modal-body">
                                 <div class="catalog-item">
-                                    <div class="catalog-item__thumb" style="width:200px;">
-                                        <img class="catalog-item__img" src="/images/Хот-дог.jpg" alt="">
+                                    <div class="catalog-item__thumb" >
+                        <img class="catalog-item__img" style="width:100%;" src="/images/Четыре сыра.jpg" alt="">
                                     </div>
-                                    <div class="catalog-item__title text-dark">Пицца Хот-дог</div>
+                    <div class="catalog-item__title text-dark">Пицца Четыре сыра</div>
                                     <div class="catalog-item__prices-block row">
                                         
                                         <p class="m-0">Состав: пицце-соус, сосиски, колбаски охотничьи, лук красный, огурчик маринованный, сыр моцарелла, кетчуп, горчица, жаренный лук Криспи. Вес: 730 гр.</p>
@@ -669,7 +689,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="c-btn c-btn_style_default c-btn_color_tetriary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-dismiss="modal">закрыть</button>
-                                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Добавить в корзину</button>
+                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-target="#Modal3" data-bs-toggle="modal">Добавить в корзину</button>
                             </div>
                         </div>
                     </div>
@@ -683,10 +703,10 @@
                             </div>
                             <div class="modal-body">
                                 <div class="catalog-item">
-                                    <div class="catalog-item__thumb" style="width:200px;">
-                                        <img class="catalog-item__img" src="/images/Хот-дог.jpg" alt="">
+                                    <div class="catalog-item__thumb" >
+                        <img class="catalog-item__img" style="width:100%;" src="/images/Тунец.jpg" alt="">
                                     </div>
-                                    <div class="catalog-item__title text-dark">Пицца Хот-дог</div>
+                    <div class="catalog-item__title text-dark">Пицца с Тунцом</div>
                                     <div class="catalog-item__prices-block row">
                                         
                                         <p class="m-0">Состав: пицце-соус, сосиски, колбаски охотничьи, лук красный, огурчик маринованный, сыр моцарелла, кетчуп, горчица, жаренный лук Криспи. Вес: 730 гр.</p>
@@ -698,7 +718,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="c-btn c-btn_style_default c-btn_color_tetriary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-dismiss="modal">закрыть</button>
-                                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Добавить в корзину</button>
+                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-target="#Modal3" data-bs-toggle="modal">Добавить в корзину</button>
                             </div>
                         </div>
                     </div>
@@ -712,10 +732,10 @@
             </div>
             <div class="modal-body">
                 <div class="catalog-item">
-                    <div class="catalog-item__thumb" style="width:200px;">
-                        <img class="catalog-item__img" src="/images/Хот-дог.jpg" alt="">
+                    <div class="catalog-item__thumb" >
+                        <img class="catalog-item__img" style="width:100%;" src="/images/Чесночная.jpg" alt="">
                     </div>
-                    <div class="catalog-item__title text-dark">Пицца Хот-дог</div>
+                    <div class="catalog-item__title text-dark">Пицца Чесночная</div>
                     <div class="catalog-item__prices-block row">
 
                         <p class="m-0">Состав: пицце-соус, сосиски, колбаски охотничьи, лук красный, огурчик маринованный, сыр моцарелла, кетчуп, горчица, жаренный лук Криспи. Вес: 730 гр.</p>
@@ -727,7 +747,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="c-btn c-btn_style_default c-btn_color_tetriary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-dismiss="modal">закрыть</button>
-                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Добавить в корзину</button>
+                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-target="#Modal3" data-bs-toggle="modal">Добавить в корзину</button>
             </div>
         </div>
     </div>
@@ -741,10 +761,10 @@
             </div>
             <div class="modal-body">
                 <div class="catalog-item">
-                    <div class="catalog-item__thumb" style="width:200px;">
-                        <img class="catalog-item__img" src="/images/Хот-дог.jpg" alt="">
+                    <div class="catalog-item__thumb" >
+                        <img class="catalog-item__img" style="width:100%;" src="/images/Жюльен.jpg" alt="">
                     </div>
-                    <div class="catalog-item__title text-dark">Пицца Хот-дог</div>
+                    <div class="catalog-item__title text-dark">Пицца Жюльен</div>
                     <div class="catalog-item__prices-block row">
 
                         <p class="m-0">Состав: пицце-соус, сосиски, колбаски охотничьи, лук красный, огурчик маринованный, сыр моцарелла, кетчуп, горчица, жаренный лук Криспи. Вес: 730 гр.</p>
@@ -756,10 +776,20 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="c-btn c-btn_style_default c-btn_color_tetriary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-dismiss="modal">закрыть</button>
-                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog">Добавить в корзину</button>
+                <button type="button" class="c-btn c-btn_style_default c-btn_color_primary c-btn_size_md_catalog c-btn_font_md_catalog" data-bs-target="#Modal3" data-bs-toggle="modal">Добавить в корзину</button>
             </div>
         </div>
     </div>
 </div>
-         
+<div class="modal fade" id="Modal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            
+            <div class="modal-body d-flex">
+                Добавлено в корзину
+            </div>
+           
+        </div>
+    </div>
+</div>
 

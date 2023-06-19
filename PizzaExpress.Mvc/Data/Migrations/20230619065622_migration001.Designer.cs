@@ -12,8 +12,8 @@ using PizzaExpress.Mvc.Data;
 namespace PizzaExpress.Mvc.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230618223623_migration005")]
-    partial class migration005
+    [Migration("20230619065622_migration001")]
+    partial class migration001
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -202,7 +202,7 @@ namespace PizzaExpress.Mvc.Data.Migrations
                     b.ToTable("OrderItem");
                 });
 
-            modelBuilder.Entity("PizzaExpress.Models.Products", b =>
+            modelBuilder.Entity("PizzaExpress.Models.Product", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -230,7 +230,7 @@ namespace PizzaExpress.Mvc.Data.Migrations
 
                     b.ToTable("Products");
 
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Products");
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Product");
 
                     b.UseTphMappingStrategy();
                 });
@@ -314,7 +314,7 @@ namespace PizzaExpress.Mvc.Data.Migrations
 
             modelBuilder.Entity("PizzaExpress.Models.Pizza", b =>
                 {
-                    b.HasBaseType("PizzaExpress.Models.Products");
+                    b.HasBaseType("PizzaExpress.Models.Product");
 
                     b.Property<int>("Diameter")
                         .HasColumnType("int");
@@ -323,14 +323,13 @@ namespace PizzaExpress.Mvc.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ProductId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasIndex("ProductId");
+
                     b.HasDiscriminator().HasValue("Pizza");
-                });
-
-            modelBuilder.Entity("PizzaExpress.Models.Sauce", b =>
-                {
-                    b.HasBaseType("PizzaExpress.Models.Products");
-
-                    b.HasDiscriminator().HasValue("Sauce");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -401,7 +400,18 @@ namespace PizzaExpress.Mvc.Data.Migrations
                         .WithMany("Items")
                         .HasForeignKey("CartId");
 
-                    b.HasOne("PizzaExpress.Models.Products", "Product")
+                    b.HasOne("PizzaExpress.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("PizzaExpress.Models.Pizza", b =>
+                {
+                    b.HasOne("PizzaExpress.Models.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)

@@ -13,7 +13,7 @@ public class ProductManager : IProductManager
     {
 		_context = context;
 	}
-    public async Task<Products?> GetProduct(string id, CancellationToken cancellationToken = default(CancellationToken))
+    public async Task<Product?> GetProduct(string id, CancellationToken cancellationToken = default(CancellationToken))
 	{
 		return await _context.Products
 			.FirstOrDefaultAsync(product => product.Id == id, cancellationToken);

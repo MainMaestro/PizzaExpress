@@ -26,22 +26,74 @@
 
 										<div class="modal-header">
 											<h1 class="modal-title fs-5" id="exampleModalLabel">Корзина</h1>
-											<a >Очистить корзину</a>
+											<a class="text-decoration-none " style="color:#8c8c8c;" href="#">Очистить корзину</a>
 										</div>
 										<div class="modal-body ">
-                                            <div>
-
+                                            <div class="m-2 d-flex">
+												
+													<img width="80px" src="/images/Хот-дог.jpg" alt="">
+												
+												<div class="basket-product__info ms-1">
+													<div class="basket-product__title">Хот-дог</div>
+													<div class="basket-product__details">
+														<div class="basket-product__price">825 ₽</div>
+														<div class="basket-product__weight">895 гр.</div>
+													</div>
+												</div>
+												<div class="buttons">
+													<div class="c-counter d-flex" data-entity="quantity">
+														<button class=" c-counter__btn_minus decrement-btn" style="height:45px;" type="button" data-entity="quantity_minus">
+															<svg class="basket-btn__img">
+																<use href="#min"></use>
+															</svg>
+														</button>
+														<input class=" c-counter__input" type="number" value="1" min="1" max="99" data-entity="quantity_input">
+														<button class=" c-counter__btn_plus increment-btn" style="height:45px;" type="button" data-entity="quantity_plus">
+															<svg class="basket-btn__img">
+																<use href="#plus"></use>
+															</svg>
+														</button>
+													</div>
+												</div>
 											</div>
+											<div class="m-2 d-flex">
+
+												<img width="80px" src="/images/Хот-дог.jpg" alt="">
+
+												<div class="basket-product__info ms-1">
+													<div class="basket-product__title">Пицца Сицилия</div>
+													<div class="basket-product__details">
+														<div class="basket-product__price">825 ₽</div>
+														<div class="basket-product__weight">895 гр.</div>
+													</div>
+												</div>
+												<div class="buttons">
+													<div class="c-counter d-flex" data-entity="quantity">
+														<button class=" c-counter__btn_minus decrement-btn" style="height:45px;" type="button" data-entity="quantity_minus">
+															<svg class="basket-btn__img">
+																<use href="#min"></use>
+															</svg>
+														</button>
+														<input class=" c-counter__input" type="number" value="1" min="1" max="99" data-entity="quantity_input">
+														<button class=" c-counter__btn_plus increment-btn" style="height:45px;" type="button" data-entity="quantity_plus">
+															<svg class="basket-btn__img">
+																<use href="#plus"></use>
+															</svg>
+														</button>
+													</div>
+												</div>
+											</div>
+                                           
                                             <div class="">
 												
-												<div class="d-flex justify-content-between">
+												<div class="d-flex justify-content-between ms-2 me-2">
 													<div>
 														<p>Доставка</p>
 														<p>Итого</p>
 													</div>
 													<div>
 														<p>Бесплатно</p>
-														<p> Руб.</p>
+														<p>1650 Руб.</p>
 
 													</div>
 												</div>
@@ -49,14 +101,35 @@
 											</div>
 											
 										</div>
+                                        <div class="modal-footer">
+											<button class="btn c-btn_color_primary" data-bs-target="#Modal2" data-bs-toggle="modal">Оформить заказ</button>
+										</div>
+										
 									</div>
 								</div>
 							</div>
 						</div>
+						<div class="modal fade" id="Modal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5" id="exampleModalLabel">Спасибо за оформление заказа</h1>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body d-flex">
+										С вами свяжутся в течении 5 минут!
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Хорошо</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
 						<div class="header__point col-auto d-none d-md-block">
 							@if (SignInManager.IsSignedIn(User))
 							{
-								<a class="header__btn" data-bs-toggle="modal" data-bs-target="#authModal23">
+								<a class="btn header__btn" data-bs-toggle="modal" data-bs-target="#authModal23">
 									<svg class="header__btn-icon">
 										<use href="#user"></use>
 										
@@ -80,7 +153,7 @@
 							}
 							else
 							{
-								<a class="header__btn" data-bs-toggle="modal" data-bs-target="#authModal22">
+								<a class="btn p-0 m-0 header__btn" data-bs-toggle="modal" data-bs-target="#authModal22">
 									<svg class="header__btn-icon">
 										<use href="#user"></use>
 									</svg>
@@ -133,6 +206,7 @@
 					</div>
 				</div>
 			</div>
+			
 		</div>
 	</div>
 	

@@ -11,9 +11,8 @@ namespace PizzaExpress.Mvc.Data
         {
 
         }
-        public DbSet<Products> Products { get; set; }
+        public DbSet<Product> Products { get; set; }
         public DbSet<Pizza> Pizzas { get; set; }
-        public DbSet<Sauce> Sauces { get; set; }
         public DbSet<Cart> Carts { get; set; }
     }
 }

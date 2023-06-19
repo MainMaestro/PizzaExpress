@@ -65,7 +65,7 @@ public class CartManager : ICartManager
 		_context.SaveChanges();
 		return cart;
 	}
-	private Cart AddProduct(ClaimsPrincipal user, Products product)
+	private Cart AddProduct(ClaimsPrincipal user, Product product)
 	{
 		var cart = GetCart(user);
 
@@ -82,7 +82,7 @@ public class CartManager : ICartManager
 		return cart;
 	}
 	
-	private Cart RemoveProduct(ClaimsPrincipal user, Products product)
+	private Cart RemoveProduct(ClaimsPrincipal user, Product product)
 	{
 		var cart = GetCart(user);
 
